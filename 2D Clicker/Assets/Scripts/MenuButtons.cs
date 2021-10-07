@@ -6,6 +6,7 @@ public class MenuButtons : MonoBehaviour
 {
     [SerializeField] private GameObject[] _materialsCanvas;
     [SerializeField] private GameObject _mainMenuCanvas;
+    [SerializeField] private GameObject[] _magazineCanvas;
 
     public void ClickMaterialsButton()
     {
@@ -21,5 +22,16 @@ public class MenuButtons : MonoBehaviour
     public void GoHome()
     {
         _mainMenuCanvas.SetActive(true);
+    }
+
+    public void CloseMagazine(int i)
+    {
+        _magazineCanvas[i].SetActive(false);
+        _mainMenuCanvas.SetActive(true);
+    }
+    public void OpenMagazine(int i)
+    {
+        _magazineCanvas[i].SetActive(true);
+        _mainMenuCanvas.SetActive(false);
     }
 }

@@ -18,6 +18,7 @@ public class GetMaterials : MonoBehaviour
     [SerializeField] private string[] _namesMaterials;
     [SerializeField] private PlayerInventory _playerInventory;
     [SerializeField] private bool _isReadyMining;
+    private int _multipleMining;
 
 
     public void MiningMaterials()
@@ -27,7 +28,7 @@ public class GetMaterials : MonoBehaviour
         {
             string Key = _namesMaterials[((int)_material)] + "_COUNT";
             int countM = PlayerPrefs.GetInt(Key, 0);
-            countM++;
+            countM += _multipleMining;
             PlayerPrefs.SetInt(Key, countM);
             _countMaterialsUI.text = countM.ToString();
             _isReadyMining = false;
@@ -39,19 +40,22 @@ public class GetMaterials : MonoBehaviour
         if ((int)_material == 0 && _playerInventory._axe.GetLevel() > 0)
         {
             _isReadyMining = true;
+            _multipleMining = _playerInventory._axe.GetMultiple();
         }
         if ((int)_material == 1 && _playerInventory._pick.GetLevel() > 0)
         {
             _isReadyMining = true;
-            
+            _multipleMining = _playerInventory._pick.GetMultiple();
         }
         if ((int)_material == 2 && _playerInventory._pick.GetLevel() > 1)
         {
             _isReadyMining = true;
+            _multipleMining = _playerInventory._pick.GetMultiple() / 2;
         }
         if ((int)_material == 3 && _playerInventory._pick.GetLevel() > 2)
         {
             _isReadyMining = true;
+            _multipleMining = _playerInventory._pick.GetMultiple() / 4;
         }
     }
 }

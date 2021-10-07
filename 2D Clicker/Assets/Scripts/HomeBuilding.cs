@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pick : Instrumental
+public class HomeBuilding : Buildings
 {
-    public Pick(string key, int defNum)
+    public HomeBuilding(string keyLevel, int defNum)
     {
-        _key = key;
+        _key = keyLevel;
         _defaultData = defNum;
     }
 }

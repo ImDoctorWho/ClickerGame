@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Axe : Instrumental
 {
-    public Axe(int level, int multiple)
+    public Axe(string key, int defLevel)
     {
-        _level = level;
-        _multipleMining = multiple;
+        _key = key;
+        _defaultData = defLevel;
     }
 }
